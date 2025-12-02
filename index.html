@@ -3,743 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Green Canopy Foundation - Protecting Our Planet</title>
-    <meta name="description" content="Join The Green Canopy Foundation in protecting vital ecosystems, promoting sustainable energy, and driving environmental education worldwide.">
-    <meta name="keywords" content="environment, conservation, climate change, non-profit, donation, sustainability, green energy">
+    <title>EcoSphere | Restoring Our Planet</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* --- 1. Base Styles & Global Reset --- */
+        /* =========================================
+           1. CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-color: #1a4d2e;      /* Deep Forest Green */
+            --primary-light: #2c6e49;      /* Lighter Green */
+            --accent-color: #ff9f1c;       /* Solar Orange (CTA) */
+            --text-dark: #1d1d1d;
+            --text-gray: #555555;
+            --bg-light: #f4f9f4;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --header-height: 80px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --color-primary: #00796b; /* Teal Green */
-            --color-secondary: #388e3c; /* Forest Green */
-            --color-accent: #ffb300; /* Amber/Orange Accent */
-            --color-background: #f8fcfb; /* Very light, cool background */
-            --color-text-dark: #263238; /* Dark Slate */
-            --color-text-light: #546e7a; /* Medium Grey */
-            --font-family-base: 'Inter', sans-serif;
-        }
-
-        body {
-            font-family: var(--font-family-base);
-            line-height: 1.6;
-            color: var(--color-text-dark);
-            background-color: var(--color-background);
+        html {
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: var(--font-family-base);
-            margin-bottom: 0.5em;
-            color: var(--color-secondary);
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         a {
             text-decoration: none;
-            color: var(--color-primary);
-            transition: color 0.3s, opacity 0.3s;
+            color: inherit;
+            transition: var(--transition);
         }
 
-        a:hover {
-            color: var(--color-secondary);
-            opacity: 0.8;
+        ul {
+            list-style: none;
         }
 
-        .section {
-            padding: 100px 5%;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================================
+           2. UTILITY CLASSES
+           ========================================= */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .text-center {
             text-align: center;
         }
 
-        /* --- 2. Utility Classes --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* --- 3. Button Styles --- */
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 32px;
             border-radius: 50px;
             font-weight: 600;
             text-transform: uppercase;
+            font-size: 0.9rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-            margin: 10px;
-            border: 2px solid transparent;
-            font-size: 0.9em;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
         }
 
         .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
-            border-color: var(--color-primary);
+            background-color: var(--accent-color);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(255, 159, 28, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: var(--color-secondary);
-            border-color: var(--color-secondary);
+            background-color: #e68a00;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--color-primary);
-            border-color: var(--color-primary);
+            border: 2px solid var(--white);
+            color: var(--white);
         }
 
         .btn-secondary:hover {
-            background-color: var(--color-primary);
-            color: white;
+            background-color: var(--white);
+            color: var(--primary-color);
         }
 
-        /* --- 4. Header & Navigation --- */
-        header {
-            background-color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .logo {
-            font-size: 1.8em;
-            font-weight: 800;
-            color: var(--color-secondary);
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        header nav ul li {
-            margin-left: 35px;
-        }
-
-        header nav ul li a {
-            color: var(--color-text-dark);
+        .section-header .sub-title {
+            color: var(--primary-light);
             font-weight: 600;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        header nav ul li a:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-primary);
-            transition: width 0.3s ease;
-        }
-
-        header nav ul li a:hover:after {
-            width: 100%;
-        }
-
-
-        /* --- 5. Hero Section (已替换图片链接) --- */
-        .hero {
-            /* 高分辨率森林背景图链接：确保直接可用 */
-            background: linear-gradient(rgba(0, 50, 40, 0.6), rgba(0, 50, 40, 0.6)), 
-                        url('https://images.unsplash.com/photo-1549490212-e56417772731?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80') no-repeat center center/cover; 
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: 4.5em;
-            margin-bottom: 0.2em;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        
-        /* --- 6. Mission/Focus Areas --- */
-        .mission-section {
-            background-color: white;
-        }
-
-        .mission-section h2 {
-            margin-bottom: 40px;
-        }
-
-        .mission-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .mission-cards .card {
-            background-color: var(--color-background); 
-            padding: 35px 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            text-align: left;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .mission-cards .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .card i {
-            font-size: 2em;
-            color: var(--color-primary);
-            margin-bottom: 15px;
-        }
-        
-        /* --- 7. Impact Metrics --- */
-        .impact-section {
-            background-color: var(--color-primary);
-            color: white;
-        }
-        
-        .impact-section h2, .impact-section p {
-            color: white;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .metric-item {
-            padding: 20px;
-        }
-
-        .metric-item strong {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
             display: block;
-            font-size: 3em;
-            font-weight: 800;
-            color: var(--color-accent);
-            margin-bottom: 5px;
-        }
-
-        .metric-item span {
-            font-size: 1.2em;
-            font-weight: 300;
-        }
-        
-        /* --- 8. Testimonials --- */
-        .testimonials-section {
-            background-color: white;
-        }
-
-        .testimonial-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial {
-            max-width: 350px;
-            padding: 30px;
-            border-radius: 10px;
-            background-color: var(--color-background);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            text-align: left;
-            border-left: 5px solid var(--color-primary);
-        }
-
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: var(--color-text-light);
-        }
-
-        .testimonial cite {
-            display: block;
-            font-style: normal;
-            font-weight: 600;
-            color: var(--color-text-dark);
-        }
-
-        /* --- 9. Donation Form Section --- */
-        .donate-section {
-            background-color: var(--color-background); 
-        }
-
-        .donation-form {
-            max-width: 550px;
-            margin: 30px auto 0;
-            padding: 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-secondary);
-        }
-
-        .form-group input:not([type="radio"]) {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-            transition: border-color 0.2s;
-        }
-        
-        .form-group input:not([type="radio"]):focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 5px rgba(0, 121, 107, 0.3);
-        }
-
-        .amount-options {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .amount-options input[type="radio"] {
-            display: none;
-        }
-
-        .amount-options label {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid var(--color-primary);
-            border-radius: 50px;
-            cursor: pointer;
-            background-color: white;
-            color: var(--color-primary);
-            font-weight: 600;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .amount-options input[type="radio"]:checked + label {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .donation-form .btn-primary {
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .note {
-            text-align: center;
-            font-size: 0.9em;
-            color: #999;
-            margin-top: 15px;
-        }
-
-        /* --- 10. Footer --- */
-        footer {
-            background-color: var(--color-text-dark);
-            color: #ccc;
-            padding: 50px 5%;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .footer-logo-section {
-            flex-basis: 30%;
-            max-width: 30%;
-        }
-        
-        .footer-logo-section p {
-            font-size: 0.9em;
-            line-height: 1.4;
-            margin-top: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 50px;
-        }
-
-        .footer-links div {
-            flex-basis: 30%;
-        }
-
-        .footer-links h4 {
-            color: white;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
             margin-bottom: 10px;
         }
 
-        .footer-links ul li a {
-            color: #ccc;
-            font-weight: 400;
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
         }
 
-        .footer-links ul li a:hover {
-            color: var(--color-accent);
+        /* =========================================
+           3. HEADER & NAV
+           ========================================= */
+        header {
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-light);
+        }
+
+        .nav-cta .btn {
+            padding: 10px 25px;
+            font-size: 0.85rem;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                        url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* =========================================
+           5. FEATURES / MISSION
+           ========================================= */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #eef5ef;
+            color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* =========================================
+           6. PROJECTS SECTION
+           ========================================= */
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .tag {
+            background-color: #e3f2e6;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .project-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .learn-more {
+            color: var(--primary-light);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .learn-more:hover {
+            gap: 10px;
+        }
+
+        /* =========================================
+           7. IMPACT SECTION
+           ========================================= */
+        .impact {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative background circle */
+        .impact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* =========================================
+           8. CALL TO ACTION (CTA)
+           ========================================= */
+        .cta-section {
+            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            position: relative;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26, 77, 46, 0.8);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form {
+            display: flex;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
+
+        /* =========================================
+           9. FOOTER
+           ========================================= */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            padding-top: 70px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            color: var(--white);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-color);
         }
 
         .copyright {
+            padding: 25px 0;
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            width: 100%;
-            font-size: 0.9em;
+            color: #777;
         }
 
+        /* =========================================
+           10. RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 3rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
 
-        /* --- 11. Responsive Adjustments --- */
-        @media (max-width: 1024px) {
-            .mission-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .testimonial-container {
+        @media (max-width: 768px) {
+            /* Mobile Nav */
+            .hamburger { display: block; }
+            
+            .nav-links {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background: var(--white);
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
+                transition: 0.4s ease;
+                border-top: 1px solid #eee;
             }
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .footer-logo-section, .footer-links {
-                max-width: 100%;
-                flex-basis: 100%;
-            }
-            .footer-links {
-                justify-content: space-between;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3em;
-            }
-            .hero p {
-                font-size: 1.2em;
-            }
-            header {
-                flex-direction: column;
-            }
-            header nav ul {
-                margin: 15px 0;
-            }
-            .mission-cards {
-                grid-template-columns: 1fr;
-            }
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
+
+            .nav-links.active { left: 0; }
+            
+            .nav-cta { display: none; } /* Hide CTA button on mobile */
+
+            /* Hero */
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; }
+            
+            /* Grid */
+            .section-header h2 { font-size: 2rem; }
+            .subscribe-form { flex-direction: column; }
+            .subscribe-form input { width: 100%; }
+            .subscribe-form button { width: 100%; }
+            
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><i class="fa-solid fa-seedling"></i> The Green Canopy</div>
-        <nav>
-            <ul>
-                <li><a href="#mission">Our Focus</a></li>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-earth-americas"></i> EcoSphere
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="#testimonials">Voices</a></li>
-                <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-        <a href="#donate" class="btn btn-primary">Donate</a>
+            <div class="nav-cta">
+                <a href="#donate" class="btn btn-primary">Donate Now</a>
+            </div>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Protecting the Vital Lungs of Our Earth</h1>
-            <p>Dedicated to global conservation, climate action, and building resilient communities.</p>
-            <a href="#donate" class="btn btn-primary btn-lg">Make a Difference Today</a>
-            <a href="#action" class="btn btn-secondary btn-lg">Explore Our Work</a>
-        </div>
-    </section>
-
-    <section id="mission" class="section mission-section">
-        <div class="container">
-            <h2>Our Core Focus Areas</h2>
-            <p class="section-subtitle" style="max-width: 600px; margin: 0 auto 50px; color: var(--color-text-light);">We tackle the biggest environmental challenges through focused, science-based initiatives around the globe.</p>
-            
-            <div class="mission-cards">
-                <div class="card">
-                    <i class="fa-solid fa-leaf"></i>
-                    <h3>Forest Conservation</h3>
-                    <p>Safeguarding ancient forests and accelerating reforestation efforts to capture carbon and protect watersheds.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-water"></i>
-                    <h3>Ocean & Water Security</h3>
-                    <p>Fighting plastic pollution, protecting marine life, and ensuring clean, safe water access for vulnerable communities.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-solar-panel"></i>
-                    <h3>Sustainable Energy Transition</h3>
-                    <p>Investing in and promoting community-scale renewable energy projects to reduce reliance on fossil fuels.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="impact" class="section impact-section">
-        <div class="container">
-            <h2>Our Impact At a Glance</h2>
-            <p style="font-size: 1.1em; margin-bottom: 50px; font-weight: 300;">We measure success not just in funds raised, but in real, verifiable change on the ground.</p>
-            
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <strong>1.2M</strong>
-                    <span>Hectares of Land Protected</span>
-                </div>
-                <div class="metric-item">
-                    <strong>15,000+</strong>
-                    <span>Trees Planted Annually</span>
-                </div>
-                <div class="metric-item">
-                    <strong>120</strong>
-                    <span>Community-Led Projects Funded</span>
-                </div>
-                <div class="metric-item">
-                    <strong>200K</strong>
-                    <span>Tons of CO2 Sequestered</span>
-                </div>
+            <h1>Restore Nature,<br>Sustain the Future.</h1>
+            <p>Join millions of global citizens in the fight against climate change. Together, we can rebuild ecosystems and protect biodiversity.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Our Projects</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="section testimonials-section">
+    <section id="mission" class="section-padding">
         <div class="container">
-            <h2>Voices From The Field</h2>
-            <p style="max-width: 600px; margin: 0 auto 50px; color: var(--color-text-light);">What our partners, volunteers, and local leaders say about the difference we make together.</p>
-
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>"The Green Canopy’s support was crucial in establishing our local water filtration system. It has transformed the health of our village."</p>
-                    <cite>— Elena M., Community Leader, Kenya</cite>
-                </div>
-                <div class="testimonial">
-                    <p>"As a volunteer, I’ve seen their dedication firsthand. Their approach is truly sustainable and highly effective. Proud to be part of the team."</p>
-                    <cite>— David L., Volunteer & Donor, USA</cite>
-                </div>
-                <div class="testimonial">
-                    <p>"Their science team provided the data we needed to push for policy change. TCF is a reliable and crucial partner in environmental governance."</p>
-                    <cite>— Dr. Anya P., Climate Scientist, EU</cite>
-                </div>
+            <div class="section-header text-center">
+                <span class="sub-title">Our Mission</span>
+                <h2>How We Make a Difference</h2>
             </div>
-        </div>
-    </section>
-
-    <section id="donate" class="section donate-section">
-        <div class="container">
-            <h2>Invest in a Sustainable Future</h2>
-            <p style="margin-bottom: 40px; color: var(--color-text-light);">Your secure donation directly funds our mission-critical projects.</p>
-            
-            <form class="donation-form" id="donationForm">
-                <div class="form-group">
-                    <label for="amount">Choose Amount:</label>
-                    <div class="amount-options" id="amountOptions">
-                        <input type="radio" id="25" name="amount" value="25"><label for="25">$25</label>
-                        <input type="radio" id="50" name="amount" value="50" checked><label for="50">$50</label>
-                        <input type="radio" id="100" name="amount" value="100"><label for="100">$100</label>
-                        <input type="radio" id="250" name="amount" value="250"><label for="250">$250</label>
-                        <input type="radio" id="other" name="amount" value="other"><label for="other">Other</label>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-tree"></i>
                     </div>
+                    <h3>Reforestation</h3>
+                    <p>We plant native trees in deforested areas to restore soil health, absorb carbon, and rebuild natural habitats for wildlife.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3>Ocean Cleanup</h3>
+                    <p>Our teams remove tons of plastic waste from coastlines and rivers before it reaches the open ocean, protecting marine life.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3>Sustainable Farming</h3>
+                    <p>Empowering local communities with regenerative agriculture techniques to ensure food security without harming the earth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="form-group" id="customAmountGroup" style="display:none;">
-                    <label for="custom_amount">Custom Amount ($):</label>
-                    <input type="number" id="custom_amount" name="custom_amount" placeholder="Minimum $10" min="10">
-                </div>
-                
-                <div class="form-group">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="John A. Doe">
-                </div>
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">Current Initiatives</span>
+                <h2>Projects We Are Working On</h2>
+            </div>
+            <div class="features-grid">
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planting Trees">
+                    </div>
+                    <div class="project-content">
+                        <span class="tag">Amazon Rainforest</span>
+                        <h3>The Billion Tree Campaign</h3>
+                        <p>A massive effort to replant the lungs of the Earth. We aim to plant 1 billion trees by 2030 in critical zones.</p>
+                        <a href="#" class="learn-more">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com">
-                </div>
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1618477461853-5f8dd68aa395?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar Energy">
+                    </div>
+                    <div class="project-content">
+                        <span class="tag">Green Energy</span>
+                        <h3>Solar for Rural Schools</h3>
+                        <p>Providing clean, renewable energy to off-grid schools, enabling education and reducing reliance on diesel generators.</p>
+                        <a href="#" class="learn-more">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-                <button type="submit" class="btn btn-primary">Securely Complete Donation</button>
-                <p class="note">This is a static demo. No real payment gateway is connected.</p>
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1534258936925-c48947387603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Life">
+                    </div>
+                    <div class="project-content">
+                        <span class="tag">Marine Protection</span>
+                        <h3>Reef Restoration</h3>
+                        <p>Planting coral nurseries to rebuild damaged reefs, essential for preserving ocean biodiversity and coastal protection.</p>
+                        <a href="#" class="learn-more">Read Story <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="impact">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="number">2.5M</span>
+                    <p>Trees Planted</p>
+                </div>
+                <div class="stat-item">
+                    <span class="number">450</span>
+                    <p>Clean-up Events</p>
+                </div>
+                <div class="stat-item">
+                    <span class="number">12k+</span>
+                    <p>Active Volunteers</p>
+                </div>
+                <div class="stat-item">
+                    <span class="number">100%</span>
+                    <p>Carbon Neutral</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section section-padding text-center">
+        <div class="cta-overlay"></div>
+        <div class="container cta-content">
+            <h2>Ready to Act?</h2>
+            <p style="margin: 20px 0;">Subscribe to our newsletter to receive updates on upcoming events and eco-tips.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email address..." required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
             </form>
         </div>
     </section>
 
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo-section">
-                    <div class="logo" style="color: white; font-size: 1.5em;"><i class="fa-solid fa-seedling"></i> The Green Canopy</div>
-                    <p>Dedicated to global environmental stewardship since 2010. We are a registered 501(c)3 non-profit organization.</p>
-                    <div class="social-links" style="margin-top: 20px;">
-                        <a href="#"><i class="fa-brands fa-facebook" style="color: white;"></i></a> 
-                        <a href="#" style="margin-left: 15px;"><i class="fa-brands fa-twitter" style="color: white;"></i></a> 
-                        <a href="#" style="margin-left: 15px;"><i class="fa-brands fa-linkedin" style="color: white;"></i></a>
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <i class="fa-solid fa-leaf"></i> EcoSphere
+                    </a>
+                    <p>We are a non-profit organization dedicated to preserving the natural world for future generations through action, education, and policy.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-links">
-                    <div>
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#mission">Our Focus</a></li>
-                            <li><a href="#impact">Our Impact</a></li>
-                            <li><a href="#action">How to Volunteer</a></li>
-                            <li><a href="#donate">Donate</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>About Us</h4>
-                        <ul>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Financial Reports</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Contact</h4>
-                        <ul>
-                            <li>Email: info@greencanopy.org</li>
-                            <li>Phone: +1 (555) 123-4567</li>
-                            <li>Address: 123 Eco Blvd, Global City</li>
-                        </ul>
-                    </div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#projects">Our Projects</a></li>
+                        <li><a href="#blog">Latest News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-envelope"></i> hello@ecosphere.org</li>
+                        <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fa-solid fa-location-dot"></i> 101 Green Way, Earth</li>
+                    </ul>
                 </div>
             </div>
-            
             <div class="copyright">
-                &copy; 2025 The Green Canopy Foundation. All Rights Reserved.
+                <p>&copy; 2024 EcoSphere Foundation. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Get DOM elements
-            const amountOptions = document.querySelectorAll('input[name="amount"]');
-            const customAmountGroup = document.getElementById('customAmountGroup');
-            const customAmountInput = document.getElementById('custom_amount');
-            const donationForm = document.getElementById('donationForm');
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-            // 2. Function to toggle Custom Amount field visibility and required attribute
-            function toggleCustomAmount() {
-                const selectedAmount = document.querySelector('input[name="amount"]:checked').value;
-                
-                if (selectedAmount === 'other') {
-                    customAmountGroup.style.display = 'block';
-                    customAmountInput.setAttribute('required', 'required');
-                    customAmountInput.setAttribute('min', '10'); // Enforce minimum for custom
-                    customAmountInput.focus();
-                } else {
-                    customAmountGroup.style.display = 'none';
-                    customAmountInput.removeAttribute('required');
-                    customAmountInput.removeAttribute('min');
-                    customAmountInput.value = ''; // Clear value when hidden
-                }
-            }
-            
-            // Initial check on load (default to $50)
-            toggleCustomAmount();
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-            // 3. Listen for changes on all radio buttons
-            amountOptions.forEach(function(radio) {
-                radio.addEventListener('change', toggleCustomAmount);
-            });
-
-            // 4. Basic Form Submission Handler (for static site demonstration)
-            donationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                let amountValue = '';
-                const selectedAmountRadio = document.querySelector('input[name="amount"]:checked');
-
-                if (selectedAmountRadio.value === 'other') {
-                    // Use custom amount if 'other' is selected
-                    amountValue = customAmountInput.value;
-                    if (parseFloat(amountValue) < 10) {
-                        alert('Error: Custom donation amount must be at least $10.');
-                        return;
-                    }
-                } else {
-                    // Use predefined amount
-                    amountValue = selectedAmountRadio.value;
-                }
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-
-                console.log('--- Form Data ---');
-                console.log('Name:', name);
-                console.log('Email:', email);
-                console.log('Donation Amount:', `$${amountValue}`);
-                
-                alert(`Thank you, ${name}, for your generous donation of $${amountValue}! Your support is vital to our mission.`);
-                
-                // Clear form after successful 'submission'
-                donationForm.reset();
-                customAmountGroup.style.display = 'none'; // Ensure custom field hides after reset
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
         });
     </script>
